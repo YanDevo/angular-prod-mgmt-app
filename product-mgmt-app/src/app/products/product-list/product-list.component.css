@@ -1,0 +1,13 @@
+img {
+    width: 50px;
+    margin: 2px;
+}
+
+thead th {
+    color: rgb(14, 147, 94);
+    background-color: rgb(215, 212, 199);
+}
+
+.table{
+    margin-bottom: 0px;
+}
