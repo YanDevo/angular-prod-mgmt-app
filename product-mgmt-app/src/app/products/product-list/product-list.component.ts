@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Iproduct } from '../product';
 
 @Component({
   selector: 'app-product-list',
@@ -9,7 +10,7 @@ export class ProductListComponent implements OnInit {
   pageTitle: string = 'Product List';
   showImage: boolean = false;
   listFilter: string = "Cart"
-  products: any[] = [
+  products: Iproduct[] = [
     {
       "productId": 1,
       "productName": "Leaf Rake",
@@ -45,6 +46,7 @@ export class ProductListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log('Inside a Lifecycle Hook!!!')
   }
 
 
