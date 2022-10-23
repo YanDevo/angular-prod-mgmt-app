@@ -9,7 +9,7 @@ import { Iproduct } from '../product';
 export class ProductListComponent implements OnInit {
   pageTitle: string = 'Product List';
   showImage: boolean = false;
-  listFilter: string = "Cart"
+
   products: Iproduct[] = [
     {
       "productId": 1,
@@ -43,14 +43,43 @@ export class ProductListComponent implements OnInit {
     },
   ];
 
+  // search filter
+  private _listFileter = "";
+
+  get listFilter() {
+    return this._listFileter;
+  }
+  set listFilter(value: string){
+    this._listFileter = value;
+    this.filteredProducts = this.performFilter(value); 
+  }
+
+  filteredProducts: Iproduct[] = [];
+
+
+
+
+
+
   constructor() { }
 
+
+
   ngOnInit(): void {
-    console.log('Inside a Lifecycle Hook!!!')
+    this._listFileter = "cart";
+    console.log(this.filteredProducts)
+
   }
 
 
 
+  // filter Method that is called when setting filter valaue
+  performFilter(filterByInput: string) : Iproduct[] {
+    filterByInput = filterByInput.toLowerCase();
+    return this.products.filter((product: Iproduct) => {
+      return product.productName.toLowerCase().includes(filterByInput);
+    })
+  }
 
   toggleImage(): void     {
     this.showImage = !this.showImage;
