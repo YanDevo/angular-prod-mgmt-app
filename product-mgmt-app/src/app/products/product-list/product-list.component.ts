@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Iproduct } from '../product';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -9,48 +10,17 @@ import { Iproduct } from '../product';
 export class ProductListComponent implements OnInit {
   pageTitle: string = 'Product List';
   showImage: boolean = false;
+  products: Iproduct[] = []
 
-  products: Iproduct[] = [
-    {
-      "productId": 1,
-      "productName": "Leaf Rake",
-      "productCode": "GDN-0011",
-      "releaseDate": "March 19, 2021",
-      "description": "Leaf rake with 48-inch wooden handle.",
-      "price": 19.95,
-      "starRating": 3.2,
-      "imageUrl": "assets/images/leaf_rake.png"
-    },
-    {
-      "productId": 2,
-      "productName": "Garden Cart",
-      "productCode": "GDN-0023",
-      "releaseDate": "March 18, 2021",
-      "description": "15 gallon capacity rolling garden cart",
-      "price": 32.99,
-      "starRating": 4.2,
-      "imageUrl": "assets/images/garden_cart.png"
-    },
-    {
-      "productId": 5,
-      "productName": "Hammer",
-      "productCode": "TBX-0048",
-      "releaseDate": "May 21, 2021",
-      "description": "Curved claw steel hammer",
-      "price": 8.9,
-      "starRating": 4.8,
-      "imageUrl": "assets/images/hammer.png"
-    },
-  ];
-
-  // search filter
-  private _listFileter = "";
+    // search filter
+  private _listFilter: string = "";
 
   get listFilter() {
-    return this._listFileter;
+    return this._listFilter;
   }
+
   set listFilter(value: string){
-    this._listFileter = value;
+    this._listFilter = value;
     this.filteredProducts = this.performFilter(value); 
   }
 
@@ -60,17 +30,13 @@ export class ProductListComponent implements OnInit {
 
 
 
+  // Service injection
+  constructor(private productSvc: ProductService) {}
 
-  constructor() { }
 
-
-
-  ngOnInit(): void {
-    this._listFileter = "cart";
-    console.log(this.filteredProducts)
-
+  toggleImage(): void     {
+    this.showImage = !this.showImage;
   }
-
 
 
   // filter Method that is called when setting filter valaue
@@ -81,8 +47,13 @@ export class ProductListComponent implements OnInit {
     })
   }
 
-  toggleImage(): void     {
-    this.showImage = !this.showImage;
+
+
+
+  // On initialization get products and set initial filtered products value to full list of products
+  ngOnInit(): void {
+    this.products = this.productSvc.getProducts();
+    this.filteredProducts = this.products;
   }
 
 }
