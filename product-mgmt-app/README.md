@@ -1,5 +1,7 @@
 # ProductMgmtApp
 
+Utilizing fundamental angular principles to create a streamlined UX managing an array of products.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.
 
 ## Development server
