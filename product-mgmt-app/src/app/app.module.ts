@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'
 import {RatingModule} from 'ngx-bootstrap/rating'
+import {HttpClientModule} from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome/welcome.component';
@@ -21,6 +22,7 @@ import { StarRatingComponent } from './shared/star-rating/star-rating.component'
     BrowserModule,
     FormsModule,
     RatingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
