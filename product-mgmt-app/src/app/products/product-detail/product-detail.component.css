@@ -1,0 +1,12 @@
+button{
+    width: 85px;
+}
+
+img{
+    background-color:rgb(145, 62, 62) ;
+}
+
+
+.card-body{
+    background-color: rgba(73, 133, 133, 0.1);
+}

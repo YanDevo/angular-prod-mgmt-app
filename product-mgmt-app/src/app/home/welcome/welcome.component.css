@@ -4,3 +4,7 @@
     font-weight: bold;
     font-size: 1.5em;
 }
+.card{
+    background-color: rgb(152, 179, 203);
+    border-bottom: none;
+  }

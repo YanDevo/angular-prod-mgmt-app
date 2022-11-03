@@ -1,4 +1,52 @@
+.navbar {
+  background-color: rgba(24, 49, 49, 0.67) !important;
+}
 .nav-link {
-    font-size: large;
+    font-size: x-large;
+    text-decoration: none;
+    color: rgb(252, 255, 204);
   }
-  
+
+  .nav-link:hover{
+    transition: 0.4s;
+    background-color: rgb(215, 212, 199);
+    ;
+    color: rgb(14, 147, 94) !important;
+  }
+  .nav-item::after{
+    content: '';
+    display: block;
+    width: 0px;
+    height: 2px;  
+    background: rgb(239, 184, 184);
+    transition: 0.4s;
+  }
+
+  .nav-item:hover::after{
+    width: 100%;
+  }
+
+
+  .navbar-light .navbar-nav .active>.nav-link,
+  .navbar-light .navbar-brand.active,
+  .navbar-light .navbar-nav .nav-link.show,
+  .navbar-light .navbar-nav .nav-link:hover{
+    color: rgb(239, 184, 184);
+    border-radius: 50%;
+
+  }
+
+  .navbar-light .navbar-nav .nav-link:focus,
+  .navbar-light .navbar-nav .active>.nav-link:focus{
+    color: rgb(14, 147, 94);
+    background-color: rgb(215, 212, 199); 
+    border-radius: 50%;
+    
+
+  }
+
+
+  .nav-link{
+    padding:25px 5px;
+    transition: 0.2s;
+  }
